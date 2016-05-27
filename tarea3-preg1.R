@@ -7,6 +7,7 @@ H1<-sapply(rep(13,10000),function(x){((abs(mean(rt(x,1.5))-mean(rt(x,1.5))))/(sq
 hist(H0,breaks = seq(0,4,0.1),col=rgb(1,0,0,0.5),xlim = c(0,4))
 hist(H1,breaks = seq(0,4,0.1),col=rgb(1,0,0.5),add=T)
 try <- abs(mean(rt(13,1.5))-median(rt(13,1.5)))/(sqrt(var(rt(13,1.5))))
+fcum<-ecdf(H0)
 pvalue <- 1-fcum(try) # Esto es para aplicar el Test del valor -p.
 #El bucle se usa para que uno de los valores que arroje pvalue pueda cumplir estar dentro de las 3sigma.
 
